@@ -1,23 +1,777 @@
-<section class="hero">
-  <div class="overlay"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2day.ind – Move with Purpose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <nav class="navbar">
-    <div class="brand">2day.ind</div>
-    <a href="#waitlist" class="nav-btn">Join Waitlist</a>
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --gray-bg: #f0efed;
+      --dark-bg: #1a1a1a;
+      --footer-bg: #111111;
+      --text-muted: rgba(255,255,255,0.75);
+      --border-light: rgba(255,255,255,0.2);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 52px;
+    }
+
+    .nav-logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: -0.3px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--white);
+      text-decoration: none;
+      opacity: 0.88;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border: 1.5px solid rgba(255,255,255,0.85);
+      border-radius: 50px;
+      color: var(--white);
+      font-size: 13.5px;
+      font-weight: 500;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.2px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--white); color: var(--black); }
+    .nav-cta svg { width: 14px; height: 14px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 680px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1514489024785-d5ba8dfb2198?fm=jpg&q=85&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
+    }
+
+    /* Multi-layer gradient overlay for brand-coherent warmth + text legibility */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(10,6,2,0.72) 0%, rgba(10,6,2,0.35) 55%, rgba(10,6,2,0.1) 100%),
+        linear-gradient(to top, rgba(10,6,2,0.5) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 0 52px 72px 52px;
+      max-width: 620px;
+    }
+
+    /* COMING SOON — bigger, more prominent */
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 5px;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 1;
+      border: 1px solid rgba(255,255,255,0.45);
+      padding: 7px 18px;
+      border-radius: 50px;
+      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(58px, 8vw, 100px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero-sub {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 36px;
+      max-width: 320px;
+    }
+
+    .btn-notify {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 15px 32px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.1px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-notify:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-notify svg { width: 15px; height: 15px; }
+
+    .hero-sub-cta {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 14px;
+    }
+
+    /* Feature pills */
+    .hero-pills {
+      position: absolute;
+      bottom: 40px;
+      right: 52px;
+      z-index: 10;
+      display: flex;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .hero-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 24px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      color: var(--white);
+    }
+
+    .hero-pill:last-child { border-right: none; }
+
+    .hero-pill svg {
+      width: 20px;
+      height: 20px;
+      stroke: rgba(255,255,255,0.85);
+      fill: none;
+      stroke-width: 1.5;
+      flex-shrink: 0;
+    }
+
+    .hero-pill-label {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ── ABOUT SECTION ── */
+    .about {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      min-height: 500px;
+    }
+
+    .about-text {
+      background: var(--dark-bg);
+      color: var(--white);
+      padding: 80px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-eyebrow {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.42);
+      margin-bottom: 26px;
+    }
+
+    .about-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.2vw, 44px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .about-body {
+      font-size: 14.5px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      max-width: 290px;
+      margin-bottom: 32px;
+    }
+
+    .learn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s;
+    }
+
+    .learn-more:hover { opacity: 0.65; }
+
+    .about-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .about-img-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+      cursor: pointer;
+    }
+
+    .about-img-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center top;
+      transition: transform 0.6s ease;
+      filter: grayscale(25%);
+    }
+
+    .about-img-card:hover .about-img-bg {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    .about-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+    }
+
+    .about-card-label {
+      position: absolute;
+      bottom: 32px;
+      left: 28px;
+      z-index: 5;
+      color: var(--white);
+    }
+
+    .about-card-label h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      font-size: 20px;
+      color: var(--white);
+      text-decoration: none;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+    }
+
+    .arrow-link:hover { opacity: 1; }
+
+    /* ── EMAIL SECTION ── */
+    .email-section {
+      background: var(--gray-bg);
+      padding: 90px 48px;
+      text-align: center;
+    }
+
+    .email-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .email-section p {
+      font-size: 15px;
+      color: rgba(0,0,0,0.5);
+      margin-bottom: 36px;
+    }
+
+    .email-form {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      max-width: 520px;
+      margin: 0 auto;
+      gap: 0;
+    }
+
+    .email-input {
+      flex: 1;
+      padding: 16px 22px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      border: 1.5px solid rgba(0,0,0,0.14);
+      border-right: none;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+      background: var(--white);
+      color: var(--black);
+      transition: border-color 0.2s;
+    }
+
+    .email-input::placeholder { color: rgba(0,0,0,0.32); }
+    .email-input:focus { border-color: rgba(0,0,0,0.35); }
+
+    .email-btn {
+      padding: 16px 30px;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .email-btn:hover { opacity: 0.78; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--footer-bg);
+      color: var(--white);
+      padding: 60px 52px 36px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 52px;
+    }
+
+    .footer-brand-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .footer-brand-tag {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.38);
+      line-height: 1.7;
+    }
+
+    .footer-col-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .social-icons a {
+      color: var(--white);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+
+    .social-icons a:hover { opacity: 1; }
+
+    .social-icons svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--white);
+    }
+
+    .footer-email-link {
+      font-size: 13.5px;
+      color: var(--white);
+      opacity: 0.85;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.65); }
+
+    /* ── MODAL ── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 48px 42px;
+      width: 90%;
+      max-width: 440px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px; right: 20px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: rgba(0,0,0,0.35);
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--black); }
+
+    .modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .modal p {
+      font-size: 14px;
+      color: rgba(0,0,0,0.5);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+
+    .modal .email-form {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .modal .email-input {
+      border-right: 1.5px solid rgba(0,0,0,0.14);
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .modal .email-btn {
+      border-radius: 8px;
+      width: 100%;
+      padding: 16px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .hero-content { padding: 0 24px 160px 24px; }
+      .hero-pills {
+        right: 24px;
+        bottom: 24px;
+        flex-direction: column;
+        border-radius: 12px;
+      }
+      .hero-pill { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 12px 16px; }
+      .hero-pill:last-child { border-bottom: none; }
+      .about { grid-template-columns: 1fr; }
+      .about-text { padding: 52px 24px; }
+      .about-img-card { min-height: 320px; }
+      .email-section { padding: 64px 24px; }
+      .email-form { flex-direction: column; gap: 12px; }
+      .email-input { border-right: 1.5px solid rgba(0,0,0,0.14); border-radius: 8px; }
+      .email-btn { border-radius: 8px; width: 100%; }
+      footer { padding: 48px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">2day.ind</a>
+    <ul class="nav-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Our Vision</a></li>
+      <li><a href="#">Designed For Her</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
+      </svg>
+      Notify Me
+    </button>
   </nav>
 
-  <div class="hero-content">
-    <span class="eyebrow">COMING SOON</span>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-overlay"></div>
 
-    <h1>MOVE WITH<br>PURPOSE.</h1>
+    <div class="hero-content">
+      <span class="hero-eyebrow">✦ &nbsp;Coming Soon</span>
+      <h1 class="hero-headline">Move with<br>Purpose.</h1>
+      <p class="hero-sub">Performance. Confidence. Everyday.<br>Activewear designed for every version of you.</p>
+      <button class="btn-notify" onclick="openModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
+        </svg>
+        Notify Me
+      </button>
+      <p class="hero-sub-cta">Be the first to know when we launch.</p>
+    </div>
 
-    <p>
-      Premium activewear crafted for women who move with
-      confidence, strength and effortless style.
-    </p>
+    <!-- Feature pills -->
+    <div class="hero-pills">
+      <div class="hero-pill">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-7h2v2h-2v-2zm0-8h2v6h-2V7z"/>
+        </svg>
+        <span class="hero-pill-label">Premium<br>Fabrics</span>
+      </div>
+      <div class="hero-pill">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linejoin="round"/>
+        </svg>
+        <span class="hero-pill-label">Designed for<br>Movement</span>
+      </div>
+      <div class="hero-pill">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <span class="hero-pill-label">Made for<br>Her</span>
+      </div>
+    </div>
+  </section>
 
-    <a href="#waitlist" class="cta">
-      Join the Waitlist
-    </a>
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="about-text">
+      <p class="about-eyebrow">About 2day.ind</p>
+      <h2 class="about-headline">Built for Strength.<br>Made for You.</h2>
+      <p class="about-body">2day.ind is an activewear brand created to empower women through movement, comfort, and effortless style.</p>
+      <a href="#" class="learn-more">Learn more &nbsp;→</a>
+    </div>
+    <div class="about-images">
+      <!-- Card 1: woman exercising -->
+      <div class="about-img-card">
+        <div class="about-img-bg" style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?fm=jpg&q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0');"></div>
+        <div class="about-img-overlay"></div>
+        <div class="about-card-label">
+          <h3>Comfort in<br>Every Move</h3>
+          <a class="arrow-link" href="#">→</a>
+        </div>
+      </div>
+      <!-- Card 2: woman fitness standing -->
+      <div class="about-img-card">
+        <div class="about-img-bg" style="background-image:url('https://images.unsplash.com/photo-1550345332-09e3ac987658?fm=jpg&q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0');"></div>
+        <div class="about-img-overlay"></div>
+        <div class="about-card-label">
+          <h3>Style that<br>Performs</h3>
+          <a class="arrow-link" href="#">→</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL SIGNUP -->
+  <section class="email-section">
+    <h2>Be the First to Know</h2>
+    <p>Join our list and get early access, exclusive updates, and launch offers.</p>
+    <div class="email-form">
+      <input class="email-input" type="email" placeholder="Enter your email address" id="email-main" />
+      <button class="email-btn" onclick="handleSignup('email-main')">Notify Me</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">2day.ind</div>
+        <div class="footer-brand-tag">Activewear for Her.<br>Designed for Every Move.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Follow Us</div>
+        <div class="social-icons">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641 0 12.017 0z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-email-link">hello@2day.ind.in</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 2day.ind. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- NOTIFY ME MODAL -->
+  <div class="modal-backdrop" id="modal" onclick="closeModalOutside(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h2>Get Notified</h2>
+      <p>Be the first to know when 2day.ind launches. Drop your email below and we'll reach out.</p>
+      <div class="email-form">
+        <input class="email-input" type="email" placeholder="Enter your email address" id="email-modal" />
+        <button class="email-btn" onclick="handleSignup('email-modal')">Notify Me</button>
+      </div>
+    </div>
   </div>
-</section>
+
+  <script>
+    function openModal() {
+      document.getElementById('modal').classList.add('open');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+    }
+    function closeModalOutside(e) {
+      if (e.target.id === 'modal') closeModal();
+    }
+
+    function handleSignup(inputId) {
+      const input = document.getElementById(inputId);
+      const email = input.value.trim();
+      if (!email || !email.includes('@')) {
+        input.style.borderColor = '#e55';
+        input.style.borderRightColor = '#e55';
+        input.focus();
+        return;
+      }
+      const mailto = `mailto:hello@2day.ind.in?subject=Notify Me – 2day.ind Launch&body=Please add me to the launch notification list.%0A%0AEmail: ${encodeURIComponent(email)}`;
+      window.location.href = mailto;
+      input.value = '';
+      closeModal();
+    }
+
+    // Reset input border on type
+    document.querySelectorAll('.email-input').forEach(el => {
+      el.addEventListener('input', () => {
+        el.style.borderColor = '';
+        el.style.borderRightColor = '';
+      });
+    });
+  </script>
+
+</body>
+</html>
