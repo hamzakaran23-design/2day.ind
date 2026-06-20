@@ -1,35 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2DAY - Coming Soon</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #f8f8f8;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      color: #555;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2day.ind | Coming Soon</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    font-family:Poppins,sans-serif;
+    color:white;
+
+    background:
+    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.35)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+}
+
+.logo{
+    width:260px;
+    max-width:80%;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:4rem;
+    font-family:Pacifico,cursive;
+    animation:pulse 2s infinite;
+}
+
+p{
+    margin-top:15px;
+    font-size:1.2rem;
+    letter-spacing:2px;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+.button{
+    margin-top:35px;
+    display:inline-block;
+    background:#ff4f8b;
+    color:white;
+    padding:14px 30px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.button:hover{
+    opacity:.9;
+}
+</style>
 </head>
+
 <body>
-  <div>
-    <h1>2DAY</h1>
-    <p>Coming Soon</p>
-    <p>Women's Athleisure • Launching Soon</p>
-  </div>
+
+<div class="container">
+
+<img src="logo.png" class="logo">
+
+<h1>Coming Soon</h1>
+
+<p>
+A new era of women's activewear is on its way.
+</p>
+
+<a href="#" class="button">
+Stay Tuned
+</a>
+
+</div>
+
 </body>
 </html>
