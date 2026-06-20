@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2day.ind | Coming Soon</title>
+<title>2DAY | Coming Soon</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -15,84 +16,200 @@
 }
 
 body{
+    font-family:'Manrope',sans-serif;
     height:100vh;
     overflow:hidden;
-    font-family:Poppins,sans-serif;
-    color:white;
 
     background:
-    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.35)),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80");
-
-    background-size:cover;
-    background-position:center;
+    linear-gradient(
+        180deg,
+        #ffd7c8 0%,
+        #ffc8b8 20%,
+        #ffb48c 40%,
+        #ff9b6b 55%,
+        #f67a54 75%,
+        #d85b52 100%
+    );
 
     display:flex;
     justify-content:center;
     align-items:center;
-    text-align:center;
 }
 
-.container{
+/* SUN */
+
+.sun{
+    position:absolute;
+    top:15%;
+    left:50%;
+    transform:translateX(-50%);
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:#fff3ba;
+    filter:blur(2px);
+    box-shadow:
+        0 0 60px rgba(255,255,220,.8),
+        0 0 120px rgba(255,220,160,.5);
+}
+
+/* HILLS */
+
+.hill1{
+    position:absolute;
+    bottom:-80px;
+    left:-10%;
+    width:70%;
+    height:280px;
+    background:#b85d57;
+    border-radius:50%;
+}
+
+.hill2{
+    position:absolute;
+    bottom:-120px;
+    right:-15%;
+    width:80%;
+    height:340px;
+    background:#964c4e;
+    border-radius:50%;
+}
+
+.hill3{
+    position:absolute;
+    bottom:-180px;
+    left:20%;
+    width:70%;
+    height:300px;
+    background:#6e3942;
+    border-radius:50%;
+}
+
+/* CONTENT */
+
+.content{
+
+    position:relative;
+    z-index:10;
+
+    text-align:center;
+    color:white;
     padding:20px;
 }
 
 .logo{
-    width:260px;
-    max-width:80%;
-    margin-bottom:20px;
+
+    width:180px;
+    margin-bottom:30px;
+    filter:drop-shadow(0 5px 15px rgba(0,0,0,.25));
 }
 
 h1{
-    font-size:4rem;
-    font-family:Pacifico,cursive;
-    animation:pulse 2s infinite;
+
+    font-size:70px;
+    font-weight:800;
+    letter-spacing:-2px;
+
+    animation:float 3s ease-in-out infinite;
 }
 
-p{
-    margin-top:15px;
-    font-size:1.2rem;
-    letter-spacing:2px;
+.subtitle{
+
+    margin-top:18px;
+    font-size:22px;
+    font-weight:300;
+    opacity:.95;
 }
 
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.05);}
-    100%{transform:scale(1);}
+.tag{
+
+    margin-top:10px;
+    font-size:15px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    opacity:.8;
 }
 
 .button{
-    margin-top:35px;
+
     display:inline-block;
-    background:#ff4f8b;
-    color:white;
-    padding:14px 30px;
-    border-radius:40px;
+    margin-top:40px;
+
+    padding:16px 36px;
+
+    border-radius:50px;
+
+    background:white;
+    color:#d85b52;
+
     text-decoration:none;
-    font-weight:bold;
+    font-weight:700;
+
+    transition:.3s;
 }
 
 .button:hover{
-    opacity:.9;
+
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(0,0,0,.2);
 }
+
+@keyframes float{
+
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0px);}
+}
+
+@media(max-width:768px){
+
+    h1{
+
+        font-size:48px;
+    }
+
+    .subtitle{
+
+        font-size:18px;
+    }
+
+    .logo{
+
+        width:140px;
+    }
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="container">
+<div class="sun"></div>
 
-<img src="logo.png" class="logo">
+<div class="hill1"></div>
+<div class="hill2"></div>
+<div class="hill3"></div>
 
-<h1>Coming Soon</h1>
+<div class="content">
 
-<p>
-A new era of women's activewear is on its way.
-</p>
+    <!-- Upload your logo as logo.png -->
+    <img src="logo.png" class="logo" alt="2DAY Logo">
 
-<a href="#" class="button">
-Stay Tuned
-</a>
+    <h1>Coming Soon</h1>
+
+    <div class="subtitle">
+        The future of women's athleisure starts today.
+    </div>
+
+    <div class="tag">
+        MOVE • CONFIDENCE • EVERYDAY
+    </div>
+
+    <a href="mailto:hello@2day.ind.in" class="button">
+        Get Notified
+    </a>
 
 </div>
 
