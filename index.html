@@ -3,21 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2day.ind – Move with Purpose</title>
+  <title>2day.ind – Move with Purpose | Premium Activewear for Her</title>
+
+  <!-- SEO -->
+  <meta name="description" content="2day.ind is a premium activewear brand designed for her — engineered for movement, crafted for confidence. Coming soon." />
+  <meta name="keywords" content="activewear, women, fitness, gym, athleisure, premium, 2day.ind, India" />
+  <meta name="author" content="2day.ind" />
+
+  <!-- Open Graph / Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="2day.ind – Move with Purpose" />
+  <meta property="og:description" content="Premium activewear designed for her. Engineered for movement, crafted for confidence. Coming soon." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1514489024785-d5ba8dfb2198?fm=jpg&q=85&w=1200&auto=format&fit=crop" />
+  <meta property="og:url" content="https://2day.ind.in" />
+  <meta property="og:site_name" content="2day.ind" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="2day.ind – Move with Purpose" />
+  <meta name="twitter:description" content="Premium activewear designed for her. Coming soon." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1514489024785-d5ba8dfb2198?fm=jpg&q=85&w=1200&auto=format&fit=crop" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
+  <!-- ═══ PAGE LOADER ═══ -->
+  <div class="loader" id="loader">
+    <div class="loader-brand">2day.ind</div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- ═══ MOBILE MENU OVERLAY ═══ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobileMenu()">About</a>
+    <a href="#philosophy" onclick="closeMobileMenu()">Our Vision</a>
+    <a href="#countdown" onclick="closeMobileMenu()">Launch</a>
+    <a href="#" onclick="closeMobileMenu(); openModal();">Notify Me</a>
+  </div>
+
+  <!-- ═══ NAV ═══ -->
+  <nav id="navbar">
     <a href="#" class="nav-logo">2day.ind</a>
     <ul class="nav-links">
-      <li><a href="#">About</a></li>
-      <li><a href="#">Our Vision</a></li>
-      <li><a href="#">Designed For Her</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#philosophy">Our Vision</a></li>
+      <li><a href="#countdown">Launch</a></li>
     </ul>
     <button class="nav-cta" onclick="openModal()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -25,31 +65,36 @@
       </svg>
       Notify Me
     </button>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-photo"></div>
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="hero-photo" id="heroPhoto"></div>
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <span class="hero-eyebrow">✦ &nbsp;Coming Soon</span>
-      <h1 class="hero-headline">Move with<br>Purpose.</h1>
-      <p class="hero-sub">Performance. Confidence. Everyday.<br>Activewear designed for every version of you.</p>
-      <button class="btn-notify" onclick="openModal()">
+      <span class="hero-eyebrow hero-anim" data-delay="0">✦ &nbsp;Coming Soon</span>
+      <h1 class="hero-headline hero-anim" data-delay="1">Move with<br><em>Purpose.</em></h1>
+      <p class="hero-sub hero-anim" data-delay="2">Performance. Confidence. Everyday.<br>Activewear designed for every version of you.</p>
+      <button class="btn-primary hero-anim" data-delay="3" onclick="openModal()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/>
         </svg>
         Notify Me
       </button>
-      <p class="hero-sub-cta">Be the first to know when we launch.</p>
+      <p class="hero-sub-cta hero-anim" data-delay="4">Be the first to know when we launch.</p>
     </div>
 
     <!-- Feature pills -->
-    <div class="hero-pills">
+    <div class="hero-pills hero-anim" data-delay="5">
       <div class="hero-pill">
         <svg viewBox="0 0 24 24">
-          <path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-7h2v2h-2v-2zm0-8h2v6h-2V7z"/>
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
         </svg>
         <span class="hero-pill-label">Premium<br>Fabrics</span>
       </div>
@@ -68,16 +113,41 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about">
+  <!-- ═══ MARQUEE ═══ -->
+  <section class="marquee-section" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span class="marquee-item">Performance</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Confidence</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Everyday</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Designed for Her</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Premium Fabrics</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Move with Purpose</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Strength</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Comfort</span><span class="marquee-dot"></span>
+      </div>
+      <div class="marquee-content">
+        <span class="marquee-item">Performance</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Confidence</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Everyday</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Designed for Her</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Premium Fabrics</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Move with Purpose</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Strength</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Comfort</span><span class="marquee-dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="about" id="about">
     <div class="about-text">
-      <p class="about-eyebrow">About 2day.ind</p>
-      <h2 class="about-headline">Built for Strength.<br>Made for You.</h2>
-      <p class="about-body">2day.ind is an activewear brand created to empower women through movement, comfort, and effortless style.</p>
-      <a href="#" class="learn-more">Learn more &nbsp;→</a>
+      <p class="about-eyebrow reveal">About 2day.ind</p>
+      <h2 class="about-headline reveal reveal-delay-1">Built for Strength.<br>Made for You.</h2>
+      <p class="about-body reveal reveal-delay-2">2day.ind is an activewear brand created to empower women through movement, comfort, and effortless style. Every piece is engineered to move with you — from the gym to the street.</p>
+      <a href="#philosophy" class="learn-more reveal reveal-delay-3">Discover Our Vision</a>
     </div>
     <div class="about-images">
-      <!-- Card 1: woman exercising -->
       <div class="about-img-card">
         <div class="about-img-bg" style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?fm=jpg&q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0');"></div>
         <div class="about-img-overlay"></div>
@@ -86,7 +156,6 @@
           <a class="arrow-link" href="#">→</a>
         </div>
       </div>
-      <!-- Card 2: woman fitness standing -->
       <div class="about-img-card">
         <div class="about-img-bg" style="background-image:url('https://images.unsplash.com/photo-1550345332-09e3ac987658?fm=jpg&q=80&w=900&auto=format&fit=crop&ixlib=rb-4.1.0');"></div>
         <div class="about-img-overlay"></div>
@@ -98,17 +167,92 @@
     </div>
   </section>
 
-  <!-- EMAIL SIGNUP -->
-  <section class="email-section">
-    <h2>Be the First to Know</h2>
-    <p>Join our list and get early access, exclusive updates, and launch offers.</p>
-    <div class="email-form">
-      <input class="email-input" type="email" placeholder="Enter your email address" id="email-main" />
-      <button class="email-btn" onclick="handleSignup('email-main')">Notify Me</button>
+  <!-- ═══ PHILOSOPHY / VALUES ═══ -->
+  <section class="philosophy" id="philosophy">
+    <div class="philosophy-header">
+      <p class="philosophy-eyebrow reveal">Our Vision</p>
+      <h2 class="philosophy-title reveal reveal-delay-1">What We Stand For</h2>
+    </div>
+    <div class="philosophy-grid">
+      <div class="philosophy-card reveal">
+        <div class="philosophy-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Premium Fabrics</h3>
+        <p>Engineered for movement, designed for skin. Four-way stretch, moisture-wicking, buttery-soft to touch.</p>
+      </div>
+      <div class="philosophy-card reveal reveal-delay-1">
+        <div class="philosophy-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+          </svg>
+        </div>
+        <h3>Sustainable Future</h3>
+        <p>Mindful materials. Responsible craft. We believe in creating beautiful things without costing the earth.</p>
+      </div>
+      <div class="philosophy-card reveal reveal-delay-2">
+        <div class="philosophy-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3>Made for Her</h3>
+        <p>Every body. Every day. Every move. Designed by women, for women — because you deserve to feel unstoppable.</p>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ═══ COUNTDOWN ═══ -->
+  <section class="countdown-section" id="countdown">
+    <p class="countdown-eyebrow reveal">Launching In</p>
+    <h2 class="countdown-title reveal reveal-delay-1">Something Beautiful<br>Is Coming</h2>
+    <div class="countdown-timer reveal reveal-delay-2" id="countdownTimer">
+      <div class="countdown-block">
+        <span class="countdown-number" id="cd-days">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-block">
+        <span class="countdown-number" id="cd-hours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-block">
+        <span class="countdown-number" id="cd-minutes">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-block">
+        <span class="countdown-number" id="cd-seconds">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EMAIL SIGNUP ═══ -->
+  <section class="email-section" id="signup">
+    <h2 class="reveal">Be the First to Know</h2>
+    <p class="reveal reveal-delay-1">Join our list and get early access, exclusive updates, and launch-day offers.</p>
+    <div class="email-form-wrapper reveal reveal-delay-2">
+      <div class="email-form" id="emailFormMain">
+        <input class="email-input" type="email" placeholder="Enter your email address" id="email-main" />
+        <button class="email-btn" onclick="handleSignup('email-main', 'emailFormMain', 'emailSuccessMain')">Notify Me</button>
+      </div>
+      <div class="email-success" id="emailSuccessMain">
+        <div class="success-check">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="success-text">
+          <strong>You're in!</strong>
+          <span>We'll reach out before launch.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
   <footer>
     <div class="footer-grid">
       <div>
@@ -146,53 +290,32 @@
     </div>
   </footer>
 
-  <!-- NOTIFY ME MODAL -->
+  <!-- ═══ NOTIFY ME MODAL ═══ -->
   <div class="modal-backdrop" id="modal" onclick="closeModalOutside(event)">
     <div class="modal">
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
       <h2>Get Notified</h2>
       <p>Be the first to know when 2day.ind launches. Drop your email below and we'll reach out.</p>
-      <div class="email-form">
-        <input class="email-input" type="email" placeholder="Enter your email address" id="email-modal" />
-        <button class="email-btn" onclick="handleSignup('email-modal')">Notify Me</button>
+      <div class="email-form-wrapper">
+        <div class="email-form" id="emailFormModal">
+          <input class="email-input" type="email" placeholder="Enter your email address" id="email-modal" />
+          <button class="email-btn" onclick="handleSignup('email-modal', 'emailFormModal', 'emailSuccessModal')">Notify Me</button>
+        </div>
+        <div class="email-success" id="emailSuccessModal">
+          <div class="success-check">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="success-text">
+            <strong>You're in!</strong>
+            <span>We'll reach out before launch.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <script>
-    function openModal() {
-      document.getElementById('modal').classList.add('open');
-    }
-    function closeModal() {
-      document.getElementById('modal').classList.remove('open');
-    }
-    function closeModalOutside(e) {
-      if (e.target.id === 'modal') closeModal();
-    }
-
-    function handleSignup(inputId) {
-      const input = document.getElementById(inputId);
-      const email = input.value.trim();
-      if (!email || !email.includes('@')) {
-        input.style.borderColor = '#e55';
-        input.style.borderRightColor = '#e55';
-        input.focus();
-        return;
-      }
-      const mailto = `mailto:hello@2day.ind.in?subject=Notify Me – 2day.ind Launch&body=Please add me to the launch notification list.%0A%0AEmail: ${encodeURIComponent(email)}`;
-      window.location.href = mailto;
-      input.value = '';
-      closeModal();
-    }
-
-    // Reset input border on type
-    document.querySelectorAll('.email-input').forEach(el => {
-      el.addEventListener('input', () => {
-        el.style.borderColor = '';
-        el.style.borderRightColor = '';
-      });
-    });
-  </script>
+  <!-- ═══ JAVASCRIPT ═══ -->
+  <script src="script.js"></script>
 
 </body>
 </html>
