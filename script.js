@@ -146,14 +146,18 @@
       localStorage.setItem('2dayind_emails', JSON.stringify(savedEmails));
     }
 
-    // Fire mailto silently in the background
-    const mailto = `mailto:hello@2day.ind.in?subject=Notify Me – 2day.ind Launch&body=Please add me to the launch notification list.%0A%0AEmail: ${encodeURIComponent(email)}`;
-    const a = document.createElement('a');
-    a.href = mailto;
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    // We don't click it — we show success instead to avoid mail app popup
-    document.body.removeChild(a);
+    // Send email via FormSubmit silently in the background
+    fetch("https://formsubmit.co/ajax/hamzakaran23@gmail.com", {
+      method: "POST",
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        _subject: "New Notify Me Submission - 2day.ind"
+      })
+    }).catch(err => console.error("FormSubmit Error:", err));
 
     // Show success state
     form.classList.add('hidden');
